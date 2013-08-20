@@ -18,11 +18,11 @@ STRIP  := strip --strip-all
 all : $(BIN)
 
 $(BIN) : depend $(OBJ)
-	$(CC)        $(CFLAGS) -o $@ $(filter-out $<, $^)
+	$(CC)        $(CFLAGS) -o $@   $(filter-out $<, $^)
 	$(STRIP) $@
 
 depend : Makefile $(SRC)
-	$(CC) -E -MM $(CFLAGS) $(filter-out $<, $^) > depend
+	$(CC) -E -MM $(CFLAGS)    $(filter-out $<, $^) > depend
 
 %.o : %.c depend
 	$(CC) -c     $(CFLAGS) -o $@ $<
