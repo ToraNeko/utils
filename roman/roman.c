@@ -116,7 +116,7 @@ process(const char *p, const struct translation *t, const int size)
 		int i;
 
 		while (*p) {
-			switch (*p) {
+			switch (*p & ~0x20) { /* force lower case -> upper case */
 				case 'I' : i =    1; break;
 				case 'V' : i =    5; break;
 				case 'X' : i =   10; break;
