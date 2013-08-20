@@ -72,15 +72,15 @@ main(int argc, const char * argv[])
 
 	(void) argc;
 
-	if      (   !strcmp(argv[1], "-l"     )
-	         || !strcmp(argv[1], "--long" )) {
+	if      (   !strcasecmp(argv[1], "-l"     )
+	         || !strcasecmp(argv[1], "--long" )) {
 		++p;
 		while ((*++p)) {
 			process(*p, tab1, sizeof(tab1) / sizeof(tab1[0]));
 		}
 	}
-	else if (   !strcmp(argv[1], "-s"     )
-	         || !strcmp(argv[1], "--short")) {
+	else if (   !strcasecmp(argv[1], "-s"     )
+	         || !strcasecmp(argv[1], "--short")) {
 		++p;
 		while ((*++p)) {
 			process(*p, tab3, sizeof(tab3) / sizeof(tab3[0]));
