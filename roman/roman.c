@@ -70,25 +70,25 @@ main(int argc, const char * argv[])
 {
 	const char **p = argv;
 
-	(void) argc;
-
-	if      (   !strcasecmp(argv[1], "-l"     )
-	         || !strcasecmp(argv[1], "--long" )) {
-		++p;
-		while ((*++p)) {
-			process(*p, tab1, sizeof(tab1) / sizeof(tab1[0]));
+	if (argc > 1) {
+		if      (   !strcasecmp(argv[1], "-l"     )
+		         || !strcasecmp(argv[1], "--long" )) {
+			++p;
+			while ((*++p)) {
+				process(*p, tab1, sizeof(tab1) / sizeof(tab1[0]));
+			}
 		}
-	}
-	else if (   !strcasecmp(argv[1], "-s"     )
-	         || !strcasecmp(argv[1], "--short")) {
-		++p;
-		while ((*++p)) {
-			process(*p, tab3, sizeof(tab3) / sizeof(tab3[0]));
+		else if (   !strcasecmp(argv[1], "-s"     )
+		         || !strcasecmp(argv[1], "--short")) {
+			++p;
+			while ((*++p)) {
+				process(*p, tab3, sizeof(tab3) / sizeof(tab3[0]));
+			}
 		}
-	}
-	else {
-		while ((*++p)) {
-			process(*p, tab2, sizeof(tab2) / sizeof(tab2[0]));
+		else {
+			while ((*++p)) {
+				process(*p, tab2, sizeof(tab2) / sizeof(tab2[0]));
+			}
 		}
 	}
 
